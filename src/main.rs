@@ -31,7 +31,7 @@ fn main() {
 
     // Generate the text
     let mut word = text.split_whitespace().nth(rand::random::<usize>() % word_count).unwrap();
-    for _ in 0..100 {
+    for _ in 0..1000 {
         print!("{} ", word);
         let freq_sum: usize = stats[word].values().sum();
         let n = rand::random::<usize>() % freq_sum;
