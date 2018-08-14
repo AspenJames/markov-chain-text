@@ -22,8 +22,8 @@ fn main() {
     let mut word_itr = text.split_whitespace();
     let mut prev_word = word_itr.next().unwrap();
     for word in word_itr {
-        let e = stats.entry(prev_word).or_insert(HashMap::new()).entry(word).or_insert(0);
-        *e += 1;
+        stats.entry(prev_word).or_insert(HashMap::new())
+            .entry(word).and_modify(|e| *e += 1).or_insert(1);
         prev_word = word;
     };
     
